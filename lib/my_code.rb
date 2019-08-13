@@ -15,7 +15,7 @@ def reduce(sources, total = nil)
     if total.nil?
       total = yield(0, sources[i])
     else 
-      if sources[i] == false
+      if yield(total, sources[i]) == false
         return false 
       elsif sources[i] == true
         total = true 
